@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #041e3a;
+  --navy-2: #0a3260;
+  --blue: #1677d4;
+  --blue-2: #4ea2ea;
+  --cream: #ffffff;
+  --cream-2: #f3f8fd;
+  --sand: #d7e8f7;
+  --ink: #041e3a;
+  --muted: #2f5678;
+  --line: rgba(22, 119, 212, 0.18);
+  --ice: #f3f8fd;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-blue: var(--blue);
+  --color-blue-2: var(--blue-2);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-sand: var(--sand);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-ice: var(--ice);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--blue);
+  color: white;
+}
+
+.container-page {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(1280px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.display {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+.display em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+}
+
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.8s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.03);
+}
+
+.rise {
+  animation: rise 0.9s ease both;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .img-zoom img,
+  .rise {
+    animation: none !important;
+    transition: none !important;
+  }
+}
